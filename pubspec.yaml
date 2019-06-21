@@ -1,0 +1,16 @@
+name: text_item_selector
+description: An item selector
+version: 0.0.1
+author: Nash Ramdial <mail@neevash.dev>
+
+environment:
+  sdk: ">=2.2.3 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+flutter:
