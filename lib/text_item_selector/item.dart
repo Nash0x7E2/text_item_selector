@@ -12,6 +12,7 @@ class Item extends StatefulWidget {
     @required this.indicatorRadius,
     @required this.indicatorSpacing,
     @required this.indicatorColor,
+    @required this.duration,
   }) : super(key: key);
   final String name;
   final int index;
@@ -21,6 +22,7 @@ class Item extends StatefulWidget {
   final double indicatorRadius;
   final double indicatorSpacing;
   final Color indicatorColor;
+  final Duration duration; 
 
   @override
   _ItemState createState() => _ItemState();
@@ -37,7 +39,7 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
     _isSelected = widget.activeIndex == widget.index;
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 250),
+      duration: widget.duration,
       value: _isSelected ? 1.0 : 0.0,
     );
 

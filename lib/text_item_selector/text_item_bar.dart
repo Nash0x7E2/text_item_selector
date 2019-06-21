@@ -19,6 +19,7 @@ class ItemSelectorBar extends StatelessWidget {
     this.indicatorColor = Colors.redAccent,
     this.indicatorSpacing = 5.0,
     this.backgroundColor,
+    this.duration = const Duration(milliseconds: 250),
   })  : assert(activeIndex != null),
         assert(onTap != null),
         assert(items != null && items.length >= 1),
@@ -38,6 +39,7 @@ class ItemSelectorBar extends StatelessWidget {
   final double indicatorSpacing;
   final Color indicatorColor;
   final Color backgroundColor;
+  final Duration duration;
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +62,7 @@ class ItemSelectorBar extends StatelessWidget {
                     indicatorColor: indicatorColor,
                     indicatorRadius: indicatorRadius,
                     indicatorSpacing: indicatorSpacing,
+                    duration: duration,
                   ),
                 ),
               ),
