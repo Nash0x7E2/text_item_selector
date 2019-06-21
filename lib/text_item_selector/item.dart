@@ -107,8 +107,7 @@ class _CirclePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final Paint paint = Paint()
-      ..color = circleColor
-      ..strokeWidth = 8.0;
+      ..color = circleColor;
     canvas.drawCircle(
       Offset(size.width / 2, size.height / 2 + verticalSpacing),
       radius * animation.value,
