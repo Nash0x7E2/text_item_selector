@@ -41,7 +41,10 @@ class _ItemState extends State<Item> with SingleTickerProviderStateMixin {
       value: _isSelected ? 1.0 : 0.0,
     );
 
-    _textStyle = TextStyleTween(begin: widget.style.initialStyle, end: widget.style.selectedStyle).animate(_controller);
+    _textStyle = TextStyleTween(
+      begin: widget.style.initialStyle,
+      end: widget.style.selectedStyle,
+    ).animate(_controller);
   }
 
   @override
@@ -106,8 +109,7 @@ class _CirclePainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    final Paint paint = Paint()
-      ..color = circleColor;
+    final Paint paint = Paint()..color = circleColor;
     canvas.drawCircle(
       Offset(size.width / 2, size.height / 2 + verticalSpacing),
       radius * animation.value,
