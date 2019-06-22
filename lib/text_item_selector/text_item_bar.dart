@@ -54,6 +54,7 @@ class ItemSelectorBar extends StatelessWidget {
                 child: Padding(
                   padding: itemPadding,
                   child: Item(
+                    key: Key("text-item-$index"),
                     index: index,
                     name: items[index],
                     activeIndex: activeIndex,
