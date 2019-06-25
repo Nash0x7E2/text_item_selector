@@ -27,4 +27,39 @@ void main() {
     await tester.pumpAndSettle();
     expect(activeIndex, activeIndex = 0);
   });
+  testWidgets('verify text style changes', (WidgetTester tester) async {
+    int activeIndex = 0;
+    final initialStyle = TextStyle(color: Colors.blue, fontSize: 14);
+    final animatedStyle = TextStyle(color: Colors.red, fontSize: 16);
+    await tester.pumpWidget(makeWidgetTestable(
+      StatefulBuilder(
+        builder: (BuildContext context, setState) {
+          return ItemSelectorBar(
+            activeIndex: activeIndex,
+            items: ["Item One", "Item Two"],
+            itemTextStyle: ItemTextStyle(
+              initialStyle: initialStyle,
+              selectedStyle: animatedStyle,
+            ),
+            onTap: (int index) {
+              setState(() => activeIndex = index);
+            },
+          );
+        },
+      ),
+    ));
+
+    final itemOneFinder = find.text('Item One');
+    Text firstItem = tester.firstWidget(itemOneFinder);
+    expect(firstItem.style, animatedStyle);
+    final itemTwoFinder = find.text('Item Two');
+    Text secondItem = tester.firstWidget(itemTwoFinder);
+    expect(secondItem.style, initialStyle);
+    await tester.tap(itemTwoFinder);
+    await tester.pumpAndSettle();
+    firstItem = tester.firstWidget(itemOneFinder);
+    secondItem = tester.firstWidget(itemTwoFinder);
+    expect(secondItem.style, animatedStyle);
+    expect(firstItem.style, initialStyle);
+  });
 }
