@@ -1,7 +1,7 @@
 # Text Item Selector 
 ![](demo/demo.gif)
 
-#What is Text Item Selector 
+# What is Text Item Selector 
 Text Item Selector is a simple package inspired by `BottomNaviagtionBar` which allows you to specify a list of `String`s to be used as items. Items can be customized using `ItemTextStyle`, a class which allows you to specify the `TextStyle` for active and inactive items. When an item is tapped, a callback is triggered providing you with the index of the tapped item. When the item is changed, the text style animates and the circle indicator at the bottom of the selected item shrinks and grows to the new item. 
 
 ## Installing 
