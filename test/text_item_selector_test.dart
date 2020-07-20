@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:text_item_selector/text_item_selector.dart';
 
-void main() {
-  Widget makeWidgetTestable(Widget child) {
+Widget makeWidgetTestable(Widget child) {
     return MaterialApp(
       home: Scaffold(
         body: child,
@@ -11,6 +10,8 @@ void main() {
     );
   }
 
+void main() {
+  
   testWidgets('verify index changes', (WidgetTester tester) async {
     int activeIndex = 0;
     await tester.pumpWidget(makeWidgetTestable(
